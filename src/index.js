@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
 
-import Provider from 'react-redux/lib/components/Provider';
+import {Provider} from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom/cjs/react-router-dom.min';
 
 import ErrorBoundry from './components/error-boundry';
@@ -13,12 +13,13 @@ import store from './store';
 
 import './index.scss';
 
-const restoServive = new RestoService();
+const restoService = new RestoService();
+// console.log(store);
 
 ReactDOM.render(
     <Provider store={store}>
         <ErrorBoundry>
-            <RestoServiceContext.Provider value={restoServive}>
+            <RestoServiceContext.Provider value={restoService}>
                 <Router>
                     <App/>
                 </Router>
